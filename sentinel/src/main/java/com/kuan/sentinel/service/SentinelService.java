@@ -13,6 +13,19 @@ public class SentinelService {
         return "hello sentinel";
     }
 
+    @SentinelResource(value = "demo#echo", blockHandler = "exceptionHandler", fallback = "fallback")
+    public String echo(String str) {
+        return "str: " + str;
+    }
+
+    public String exceptionHandler(String str) {
+        return "block handler ....";
+    }
+
+    public String fallback(String str) {
+        return "fall back ...";
+    }
+
     public String exceptionHandler(BlockException ex) {
         ex.printStackTrace();
         System.out.println(ex.getMessage());

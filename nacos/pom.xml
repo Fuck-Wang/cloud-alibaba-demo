@@ -9,9 +9,10 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
+    <groupId>com.kuan</groupId>
     <artifactId>nacos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>nacos</name>
     <description>Demo project for Spring Boot</description>
 
