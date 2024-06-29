@@ -1,0 +1,36 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: demo-gateway
+
+  cloud:
+    #sentinel
+    sentinel:
+      transport:
+        dashboard: localhost:8084
+    #nacos
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      server-addr: localhost:8848
+    #gateway
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+#          lower-case-service-id: true
+          enabled: false
+      routes:
+        - id: sentinel
+          uri: lb://sentinel
+          predicates:
+            - Path=/demo/hello
+#        - id: sentinel-demo
+#          uri: http://www.baidu.com
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - StripPrefix=1
+
